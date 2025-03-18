@@ -15,75 +15,88 @@ import { Button } from '@/components/ui/button';
 const Index = () => {
   return (
     <DashboardLayout>
-      <div className="space-y-6">
-        {/* Pandemic Updates */}
-        <div className="bg-white rounded-lg p-6 animate-fadeIn">
-          <div className="flex justify-between items-center mb-4">
-            <div>
-              <h2 className="text-xl font-bold">Pandemic Updates</h2>
-              <p className="text-sm text-gray-500">New Highlights</p>
+      <div className="space-y-4">
+        {/* First Row: Pandemic Updates and Recovered Chart */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          {/* Pandemic Updates (2/3 width) */}
+          <div className="bg-white rounded-lg p-4 lg:col-span-2 animate-fadeIn">
+            <div className="flex justify-between items-center mb-3">
+              <div>
+                <h2 className="text-lg font-bold">Pandemic Updates</h2>
+                <p className="text-xs text-gray-500">New Highlights</p>
+              </div>
+              <Button variant="outline" size="sm" className="h-8 px-3 flex items-center gap-1">
+                <Download size={14} />
+                Export
+              </Button>
             </div>
-            <Button variant="outline" size="sm" className="h-9 px-4 flex items-center gap-2">
-              <Download size={16} />
-              Export
-            </Button>
+            
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+              <StatCard 
+                icon={<Users size={18} />}
+                title="Total Cases"
+                value="19453"
+                change="+95 from yesterday"
+                iconColor="#2DB4F8"
+                changeType="increase"
+              />
+              <StatCard 
+                icon={<Bandage size={18} />}
+                title="Are in treatment"
+                value="40000"
+                change="+53 from yesterday"
+                iconColor="#307FE2"
+                changeType="increase"
+              />
+              <StatCard 
+                icon={<AlertTriangle size={18} />}
+                title="Dead"
+                value="5000"
+                change="+12 from yesterday"
+                iconColor="#FF6B6B"
+                changeType="increase"
+              />
+              <StatCard 
+                icon={<Users2 size={18} />}
+                title="Total Quarantized"
+                value="10"
+                change="0.5% from yesterday"
+                iconColor="#20C997"
+                changeType="neutral"
+              />
+            </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCard 
-              icon={<Users size={20} />}
-              title="Total Cases"
-              value="19453"
-              change="+95 from yesterday"
-              iconColor="#2DB4F8"
-              changeType="increase"
-            />
-            <StatCard 
-              icon={<Bandage size={20} />}
-              title="Are in treatment"
-              value="40000"
-              change="+53 from yesterday"
-              iconColor="#307FE2"
-              changeType="increase"
-            />
-            <StatCard 
-              icon={<AlertTriangle size={20} />}
-              title="Dead"
-              value="5000"
-              change="+12 from yesterday"
-              iconColor="#FF6B6B"
-              changeType="increase"
-            />
-            <StatCard 
-              icon={<Users2 size={20} />}
-              title="Total Quarantized"
-              value="10"
-              change="0.5% from yesterday"
-              iconColor="#20C997"
-              changeType="neutral"
-            />
+          {/* Recovered Chart (1/3 width) */}
+          <div className="lg:col-span-1">
+            <RecoveredChart />
           </div>
         </div>
 
         {/* Charts Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <RecoveredChart />
-          <div className="grid grid-cols-1 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="lg:col-span-1">
             <PredictionsChart />
+          </div>
+          <div className="lg:col-span-1">
+            <VaccinationChart />
+          </div>
+          <div className="lg:col-span-1">
+            <CasesChart />
           </div>
         </div>
         
         {/* Charts Row 2 */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <VaccinationChart />
-          <CasesChart />
-          <SeparationChart />
-        </div>
-        
-        {/* Charts Row 3 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <HospitalTable />
-          <OutbreakMap />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="lg:col-span-1">
+            <SeparationChart />
+          </div>
+          <div className="lg:col-span-1">
+            <HospitalTable />
+          </div>
+          <div className="lg:col-span-1">
+            <OutbreakMap />
+          </div>
         </div>
       </div>
     </DashboardLayout>

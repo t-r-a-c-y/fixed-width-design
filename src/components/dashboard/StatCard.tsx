@@ -26,17 +26,17 @@ const StatCard: React.FC<StatCardProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-lg p-5 transition-all duration-300 hover:shadow-sm animate-slideUp">
+    <div className="bg-white rounded-lg p-3 transition-all duration-300 hover:shadow-sm animate-slideUp">
       <div 
-        className={cn("w-12 h-12 rounded-full flex items-center justify-center text-white mb-3")}
+        className={cn("w-8 h-8 rounded-full flex items-center justify-center text-white mb-2")}
         style={{ backgroundColor: iconColor }}
       >
         {icon}
       </div>
-      <h3 className="text-2xl font-bold">{value}</h3>
-      <p className="text-gray-600 text-sm mt-1">{title}</p>
-      <p className={cn("text-xs mt-2", getChangeColor())}>
-        {change} from yesterday
+      <h3 className="text-lg font-bold">{value}</h3>
+      <p className="text-gray-600 text-xs">{title}</p>
+      <p className={cn("text-[10px] mt-1", getChangeColor())}>
+        {change}
       </p>
     </div>
   );

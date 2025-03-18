@@ -26,7 +26,7 @@ const CustomizedDot = (props: any) => {
       <circle 
         cx={cx} 
         cy={cy} 
-        r={5} 
+        r={4} 
         fill={stroke} 
         stroke="white" 
         strokeWidth={2} 
@@ -39,10 +39,10 @@ const CustomizedDot = (props: any) => {
 
 const RecoveredChart = () => {
   return (
-    <div className="chart-container h-[260px] animate-fadeIn">
-      <h3 className="text-lg font-semibold mb-4">Recovered & Death graph</h3>
-      <ResponsiveContainer width="100%" height="90%">
-        <LineChart data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+    <div className="chart-container h-full animate-fadeIn">
+      <h3 className="text-sm font-semibold mb-2">Recovered & Death graph</h3>
+      <ResponsiveContainer width="100%" height={220}>
+        <LineChart data={data} margin={{ top: 5, right: 5, bottom: 5, left: 0 }}>
           <defs>
             <linearGradient id="sickGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#2DB4F8" stopOpacity={0.4} />
@@ -59,12 +59,13 @@ const RecoveredChart = () => {
           </defs>
           <XAxis 
             dataKey="name" 
-            tick={{ fontSize: 10 }} 
+            tick={{ fontSize: 8 }} 
             axisLine={false} 
             tickLine={false}
+            interval="preserveStartEnd"
           />
           <YAxis 
-            tick={{ fontSize: 10 }} 
+            tick={{ fontSize: 8 }} 
             axisLine={false} 
             tickLine={false}
             tickFormatter={(value) => `${value}k`}
@@ -76,24 +77,25 @@ const RecoveredChart = () => {
               borderRadius: '8px', 
               border: 'none', 
               boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-              padding: '8px'
+              padding: '6px',
+              fontSize: '10px'
             }}
-            labelStyle={{ fontWeight: 'bold', marginBottom: '4px' }}
-            itemStyle={{ fontSize: '12px', padding: '2px 0' }}
+            labelStyle={{ fontWeight: 'bold', marginBottom: '2px', fontSize: '10px' }}
+            itemStyle={{ fontSize: '10px', padding: '1px 0' }}
           />
           <Legend 
             iconType="circle"
-            iconSize={8}
+            iconSize={6}
             align="center"
-            wrapperStyle={{ paddingTop: '10px', fontSize: '12px' }}
+            wrapperStyle={{ paddingTop: '5px', fontSize: '9px' }}
           />
           <Line 
             type="monotone" 
             dataKey="sick" 
             name="Sick"
             stroke="#2DB4F8" 
-            strokeWidth={3} 
-            activeDot={{ r: 6 }}
+            strokeWidth={2} 
+            activeDot={{ r: 4 }}
             dot={<CustomizedDot />}
           />
           <Line 
@@ -101,8 +103,8 @@ const RecoveredChart = () => {
             dataKey="dead" 
             name="Dead"
             stroke="#FF6B6B" 
-            strokeWidth={3} 
-            activeDot={{ r: 6 }}
+            strokeWidth={2} 
+            activeDot={{ r: 4 }}
             dot={<CustomizedDot />}
           />
           <Line 
@@ -110,8 +112,8 @@ const RecoveredChart = () => {
             dataKey="recovered" 
             name="Recovered"
             stroke="#4CD964" 
-            strokeWidth={3}
-            activeDot={{ r: 6 }}
+            strokeWidth={2}
+            activeDot={{ r: 4 }}
             dot={<CustomizedDot />}
           />
         </LineChart>
