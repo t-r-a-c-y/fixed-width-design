@@ -86,16 +86,16 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Third Row */}
+        {/* Third Row - Rearranged as requested */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          <div className="lg:col-span-1">
-            <CasesChart />
-          </div>
           <div className="lg:col-span-1">
             <HospitalTable />
           </div>
           <div className="lg:col-span-1">
             <OutbreakMap />
+          </div>
+          <div className="lg:col-span-1">
+            <CasesChart />
           </div>
         </div>
       </div>
