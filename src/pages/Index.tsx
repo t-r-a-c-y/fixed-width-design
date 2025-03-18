@@ -73,23 +73,23 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Charts Row */}
+        {/* Rearranged Charts Row: Vaccination, Predictions, Separation */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          <div className="lg:col-span-1">
-            <PredictionsChart />
-          </div>
           <div className="lg:col-span-1">
             <VaccinationChart />
           </div>
           <div className="lg:col-span-1">
-            <CasesChart />
+            <PredictionsChart />
+          </div>
+          <div className="lg:col-span-1">
+            <SeparationChart />
           </div>
         </div>
         
-        {/* Charts Row 2 */}
+        {/* Third Row */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div className="lg:col-span-1">
-            <SeparationChart />
+            <CasesChart />
           </div>
           <div className="lg:col-span-1">
             <HospitalTable />
