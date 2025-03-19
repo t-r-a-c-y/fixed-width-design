@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BarChart, Activity, Hospital, Vaccine, Settings, LogOut } from 'lucide-react';
+import { BarChart, Activity, Hospital, Syringe, Settings, LogOut } from 'lucide-react';
 
 const StatisticsSidebar = () => {
   const location = useLocation();
@@ -40,7 +40,7 @@ const StatisticsSidebar = () => {
     { 
       name: 'Vaccination', 
       path: '/vaccination', 
-      icon: <Vaccine size={20} /> 
+      icon: <Syringe size={20} /> 
     },
     { 
       name: 'Settings', 

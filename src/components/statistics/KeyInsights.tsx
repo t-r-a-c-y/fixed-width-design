@@ -1,13 +1,13 @@
 
 import React from 'react';
-import { Vaccination, Hospital, Activity, BarChart, Info } from 'lucide-react';
+import { Syringe, Hospital, Activity, BarChart, Info } from 'lucide-react';
 
 const insights = [
   {
     id: 1,
     title: 'Vaccination Progress',
     subtitle: '23,456 vaccinated',
-    icon: <Vaccination size={20} className="text-blue-500" />,
+    icon: <Syringe size={20} className="text-blue-500" />,
     color: 'bg-blue-50'
   },
   {
