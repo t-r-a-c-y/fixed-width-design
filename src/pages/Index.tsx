@@ -95,7 +95,7 @@ const Index = () => {
             <OutbreakMap />
           </div>
           <div className="lg:col-span-1">
-            <CasesChart />
+            <SeparationChart />
           </div>
         </div>
       </div>
