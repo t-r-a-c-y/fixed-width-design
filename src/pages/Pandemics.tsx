@@ -1,4 +1,3 @@
-
 import React from 'react';
 import DashboardLayout from '@/layouts/DashboardLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -417,35 +416,35 @@ const statsCards = [
     title: "Confirmed Cases",
     value: "33,495",
     change: "+1.2% from last week",
-    changeType: "increase",
+    changeType: "increase" as const,
     color: "#2DB4F8"
   },
   {
     title: "Active Cases",
     value: "10,487",
     change: "-3.6% from last week",
-    changeType: "decrease",
+    changeType: "decrease" as const,
     color: "#FF9F43"
   },
   {
     title: "Recovered",
     value: "8,159",
     change: "+4.5% from last week",
-    changeType: "increase",
+    changeType: "increase" as const,
     color: "#4CD964"
   },
   {
     title: "Deaths",
     value: "2,845",
     change: "+0.8% from last week",
-    changeType: "increase",
+    changeType: "increase" as const,
     color: "#FF6B6B"
   },
   {
     title: "Tests",
     value: "5,046",
     change: "+2.3% from last week",
-    changeType: "increase",
+    changeType: "increase" as const,
     color: "#A78BFA"
   }
 ];
