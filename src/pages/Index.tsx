@@ -6,7 +6,6 @@ import StatCard from '@/components/dashboard/StatCard';
 import RecoveredChart from '@/components/dashboard/RecoveredChart';
 import VaccinationChart from '@/components/dashboard/VaccinationChart';
 import PredictionsChart from '@/components/dashboard/PredictionsChart';
-import CasesChart from '@/components/dashboard/CasesChart';
 import HospitalTable from '@/components/dashboard/HospitalTable';
 import OutbreakMap from '@/components/dashboard/OutbreakMap';
 import SeparationChart from '@/components/dashboard/SeparationChart';
@@ -86,7 +85,7 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Third Row - Rearranged as requested */}
+        {/* Third Row - Hospital Table, Outbreak Map, and 6 Degrees of Separation */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div className="lg:col-span-1">
             <HospitalTable />
