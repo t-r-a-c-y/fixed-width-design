@@ -21,8 +21,8 @@ const Index = () => {
           <div className="bg-white rounded-lg p-4 lg:col-span-2 animate-fadeIn">
             <div className="flex justify-between items-center mb-3">
               <div>
-                <h2 className="text-lg font-bold">Pandemic Updates</h2>
-                <p className="text-xs text-gray-500">New Highlights</p>
+                <h2 className="text-lg font-bold">Using 6 Degrees of Separation</h2>
+                <p className="text-xs text-gray-500">Total Cases Analysis</p>
               </div>
               <Button variant="outline" size="sm" className="h-8 px-3 flex items-center gap-1">
                 <Download size={14} />
@@ -85,16 +85,13 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Third Row - Hospital Table, Outbreak Map, and 6 Degrees of Separation */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        {/* Third Row - Hospital Table and Outbreak Map */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div className="lg:col-span-1">
             <HospitalTable />
           </div>
           <div className="lg:col-span-1">
             <OutbreakMap />
-          </div>
-          <div className="lg:col-span-1">
-            <SeparationChart />
           </div>
         </div>
       </div>

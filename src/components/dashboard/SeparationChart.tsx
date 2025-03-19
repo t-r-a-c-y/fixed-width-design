@@ -15,7 +15,7 @@ const data = [
 const SeparationChart = () => {
   return (
     <div className="bg-white rounded-lg p-5 animate-fadeIn">
-      <h3 className="text-lg font-semibold mb-6">Using 6 degree of Separation</h3>
+      <h3 className="text-lg font-semibold mb-6">6 Degrees of Separation Analysis</h3>
       
       <div className="h-[200px]">
         <ResponsiveContainer width="100%" height="100%">
@@ -30,13 +30,11 @@ const SeparationChart = () => {
               axisLine={false}
               tickLine={false}
               tick={{ fontSize: 12 }}
-              hide
             />
             <YAxis
               axisLine={false}
               tickLine={false}
               tick={{ fontSize: 12 }}
-              hide
             />
             <Tooltip
               contentStyle={{
@@ -57,14 +55,14 @@ const SeparationChart = () => {
         <div className="flex items-center">
           <div className="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
           <div>
-            <p className="text-sm">Infected</p>
+            <p className="text-sm">Primary Contacts</p>
             <p className="text-lg font-semibold">1,134</p>
           </div>
         </div>
         <div className="flex items-center">
           <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
           <div>
-            <p className="text-sm">Normal</p>
+            <p className="text-sm">Extended Network</p>
             <p className="text-lg font-semibold">636</p>
           </div>
         </div>
