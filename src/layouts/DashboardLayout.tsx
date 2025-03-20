@@ -109,15 +109,15 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
               </span>
             </div>
             
-            <div className="flex items-center gap-2">
+            <Link to="/settings" className="flex items-center gap-2">
               <Avatar className="w-8 h-8 border-2 border-blue-light">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" />
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" />
               </Avatar>
               <div className="text-sm">
-                <p className="font-medium">Musafiq</p>
+                <p className="font-medium">Alexa</p>
                 <p className="text-xs text-gray-500">Admin</p>
               </div>
-            </div>
+            </Link>
           </div>
         </header>
 

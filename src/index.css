@@ -33,16 +33,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.75rem;
-
-    --sidebar-background: 210 50% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 200 98% 46%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.5rem;
   }
 
   .dark {
@@ -73,14 +64,16 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer components {
+  .sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-md text-gray-600 font-medium hover:bg-blue-light/10 hover:text-blue-light transition-colors;
+  }
+  
+  .sidebar-item.active {
+    @apply bg-blue-light/10 text-blue-light;
   }
 }
 
@@ -88,39 +81,7 @@
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-}
-
-@layer components {
-  .sidebar-item {
-    @apply flex items-center gap-3 px-3 py-2 rounded-md text-[15px] font-medium transition-all duration-200;
-  }
-  
-  .sidebar-item.active {
-    @apply bg-blue-light text-white;
-  }
-  
-  .sidebar-item:not(.active) {
-    @apply text-gray-600 hover:bg-blue-50;
-  }
-  
-  .stat-card {
-    @apply bg-gray-100 p-5 rounded-lg relative overflow-hidden flex flex-col justify-center transition-all;
-  }
-
-  .stat-card-icon {
-    @apply w-12 h-12 rounded-full flex items-center justify-center text-white mb-3;
-  }
-
-  .progress-bar {
-    @apply h-2 rounded-full w-full overflow-hidden bg-gray-200;
-  }
-
-  .chart-container {
-    @apply bg-white p-4 rounded-lg overflow-hidden;
   }
 }
