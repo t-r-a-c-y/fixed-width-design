@@ -1,4 +1,3 @@
-
 import React from 'react';
 import DashboardLayout from '@/layouts/DashboardLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,6 +8,7 @@ import HospitalStatCard from '@/components/hospitals/HospitalStatCard';
 import HospitalChart from '@/components/hospitals/HospitalChart';
 import DonutChart from '@/components/hospitals/DonutChart';
 import HospitalsList from '@/components/hospitals/HospitalsList';
+import ProgressBar from '@/components/hospitals/ProgressBar';
 
 const occupancyData = [
   { name: 'Occupied', value: 65, color: '#4f46e5' },
