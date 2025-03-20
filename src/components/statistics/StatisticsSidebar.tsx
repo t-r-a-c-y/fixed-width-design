@@ -39,7 +39,7 @@ const StatisticsSidebar = () => {
     },
     { 
       name: 'Vaccination', 
-      path: '/vaccination', 
+      path: '/vaccinations', 
       icon: <Syringe size={20} /> 
     },
     { 

@@ -77,7 +77,9 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
         <header className="h-16 border-b border-gray-200 bg-white flex items-center justify-between px-6">
-          <h1 className="text-xl font-bold">Dashboard</h1>
+          <h1 className="text-xl font-bold">
+            {sidebarItems.find(item => item.path === location.pathname)?.label || 'Dashboard'}
+          </h1>
           
           <div className="flex items-center gap-4">
             <div className="relative">

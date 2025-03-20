@@ -10,6 +10,7 @@ import Statistics from "./pages/Statistics";
 import PandemicsPage from "./pages/Pandemics";
 import HospitalsPage from "./pages/Hospitals";
 import PredictionsPage from "./pages/Predictions";
+import VaccinationsPage from "./pages/Vaccinations";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/pandemics" element={<PandemicsPage />} />
           <Route path="/hospitals" element={<HospitalsPage />} />
           <Route path="/predictions" element={<PredictionsPage />} />
+          <Route path="/vaccinations" element={<VaccinationsPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
