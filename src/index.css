@@ -69,11 +69,11 @@
 
 @layer components {
   .sidebar-item {
-    @apply flex items-center gap-3 px-3 py-2 rounded-md text-gray-600 font-medium hover:bg-blue-light/10 hover:text-blue-light transition-colors;
+    @apply flex items-center gap-3 px-3 py-2 rounded-md text-gray-600 font-medium hover:bg-blue-light/10 hover:text-blue-light transition-colors dark:text-gray-300 dark:hover:bg-blue-light/20;
   }
   
   .sidebar-item.active {
-    @apply bg-blue-light/10 text-blue-light;
+    @apply bg-blue-light/10 text-blue-light dark:bg-blue-light/20;
   }
 }
 
