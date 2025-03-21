@@ -87,10 +87,13 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   // Safely access user information with proper type checking
   const userName = user ? (user.firstName || 'User') : 'User';
   const userInitial = userName.charAt(0).toUpperCase();
-  // Fix the type issue by properly accessing and typing publicMetadata
-  const userRole = user?.publicMetadata && typeof user.publicMetadata === 'object' && 'role' in user.publicMetadata 
-    ? String(user.publicMetadata.role) 
-    : 'Admin';
+  
+  // Properly type check and access publicMetadata
+  const userRole = user?.publicMetadata && 
+    typeof user.publicMetadata === 'object' ? 
+    String(user.publicMetadata.role || 'Admin') : 
+    'Admin';
+    
   const userImageUrl = user?.imageUrl || '';
 
   return (
