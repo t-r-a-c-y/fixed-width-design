@@ -5,7 +5,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import { ClerkProvider } from "@clerk/clerk-react";
 import Index from "./pages/Index";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import VerifyEmail from "./pages/VerifyEmail";
 import NotFound from "./pages/NotFound";
 import Statistics from "./pages/Statistics";
 import PandemicsPage from "./pages/Pandemics";
@@ -13,6 +17,15 @@ import HospitalsPage from "./pages/Hospitals";
 import PredictionsPage from "./pages/Predictions";
 import VaccinationsPage from "./pages/Vaccinations";
 import SettingsPage, { AppContext } from "./pages/Settings";
+import ProtectedRoute from "./components/ProtectedRoute";
+
+// Initialize Clerk with publishable key
+// Replace this with your actual Clerk publishable key
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY || "pk_test_your-key-here";
+
+if (!PUBLISHABLE_KEY) {
+  console.warn("Missing Clerk Publishable Key");
+}
 
 const queryClient = new QueryClient();
 
@@ -33,27 +46,70 @@ const App = () => {
   });
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <AppContext.Provider value={{ darkMode, setDarkMode, selectedCountry, setSelectedCountry }}>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/statistics" element={<Statistics />} />
-              <Route path="/pandemics" element={<PandemicsPage />} />
-              <Route path="/hospitals" element={<HospitalsPage />} />
-              <Route path="/predictions" element={<PredictionsPage />} />
-              <Route path="/vaccinations" element={<VaccinationsPage />} />
-              <Route path="/settings" element={<SettingsPage />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </AppContext.Provider>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <ClerkProvider 
+      publishableKey={PUBLISHABLE_KEY}
+      clerkJSVersion="5.56.0-snapshot.v20250312225817"
+      signInUrl="/login"
+      signUpUrl="/signup"
+      afterSignInUrl="/"
+      afterSignUpUrl="/verify">
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <AppContext.Provider value={{ darkMode, setDarkMode, selectedCountry, setSelectedCountry }}>
+            <BrowserRouter>
+              <Routes>
+                {/* Auth routes - accessible without authentication */}
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/verify" element={<VerifyEmail />} />
+                
+                {/* Protected routes - require authentication */}
+                <Route path="/" element={
+                  <ProtectedRoute>
+                    <Index />
+                  </ProtectedRoute>
+                } />
+                <Route path="/statistics" element={
+                  <ProtectedRoute>
+                    <Statistics />
+                  </ProtectedRoute>
+                } />
+                <Route path="/pandemics" element={
+                  <ProtectedRoute>
+                    <PandemicsPage />
+                  </ProtectedRoute>
+                } />
+                <Route path="/hospitals" element={
+                  <ProtectedRoute>
+                    <HospitalsPage />
+                  </ProtectedRoute>
+                } />
+                <Route path="/predictions" element={
+                  <ProtectedRoute>
+                    <PredictionsPage />
+                  </ProtectedRoute>
+                } />
+                <Route path="/vaccinations" element={
+                  <ProtectedRoute>
+                    <VaccinationsPage />
+                  </ProtectedRoute>
+                } />
+                <Route path="/settings" element={
+                  <ProtectedRoute>
+                    <SettingsPage />
+                  </ProtectedRoute>
+                } />
+                
+                {/* Catch-all for 404 */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </AppContext.Provider>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ClerkProvider>
   );
 }
 
