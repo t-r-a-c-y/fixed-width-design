@@ -47,8 +47,8 @@ const App = () => {
     <ClerkProvider 
       publishableKey={PUBLISHABLE_KEY}
       signInUrl="/login"
-      fallbackRedirectUrl="/"
-      forceRedirectUrl="/">
+      signInFallbackRedirectUrl="/"
+      signInForceRedirectUrl="/">
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <Toaster />
