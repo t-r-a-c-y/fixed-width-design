@@ -19,10 +19,10 @@ import SettingsPage, { AppContext } from "./pages/Settings";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 // Initialize Clerk with publishable key
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY || "pk_test_Y29ycmVjdC1wYW5kYS00My5jbGVyay5hY2NvdW50cy5kZXYk";
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY || "";
 
-if (!PUBLISHABLE_KEY.startsWith('pk_')) {
-  console.warn("Missing or invalid Clerk Publishable Key");
+if (!PUBLISHABLE_KEY) {
+  console.warn("Missing Clerk Publishable Key");
 }
 
 const queryClient = new QueryClient();
