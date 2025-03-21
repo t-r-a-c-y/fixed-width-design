@@ -8,7 +8,6 @@ import { useState } from "react";
 import { ClerkProvider } from "@clerk/clerk-react";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
-import Signup from "./pages/Signup";
 import VerifyEmail from "./pages/VerifyEmail";
 import NotFound from "./pages/NotFound";
 import Statistics from "./pages/Statistics";
@@ -49,7 +48,6 @@ const App = () => {
     <ClerkProvider 
       publishableKey={PUBLISHABLE_KEY}
       signInUrl="/login"
-      signUpUrl="/signup"
       afterSignInUrl="/"
       afterSignUpUrl="/verify">
       <QueryClientProvider client={queryClient}>
@@ -61,7 +59,6 @@ const App = () => {
               <Routes>
                 {/* Auth routes - accessible without authentication */}
                 <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
                 <Route path="/verify" element={<VerifyEmail />} />
                 
                 {/* Protected routes - require authentication */}
