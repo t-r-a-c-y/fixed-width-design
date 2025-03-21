@@ -20,11 +20,11 @@ import SettingsPage, { AppContext } from "./pages/Settings";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 // Initialize Clerk with publishable key
-// Replace this with your actual Clerk publishable key
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY || "pk_test_your-key-here";
+// Use a default test key if env variable is not set - this is for development only
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY || "pk_test_Z29vZC1sb29uLTgzLmNsZXJrLmFjY291bnRzLmRldiQ";
 
-if (!PUBLISHABLE_KEY) {
-  console.warn("Missing Clerk Publishable Key");
+if (!PUBLISHABLE_KEY.startsWith('pk_')) {
+  console.warn("Missing or invalid Clerk Publishable Key");
 }
 
 const queryClient = new QueryClient();
@@ -48,7 +48,6 @@ const App = () => {
   return (
     <ClerkProvider 
       publishableKey={PUBLISHABLE_KEY}
-      clerkJSVersion="5.56.0-snapshot.v20250312225817"
       signInUrl="/login"
       signUpUrl="/signup"
       afterSignInUrl="/"
